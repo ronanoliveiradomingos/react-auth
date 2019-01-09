@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-
-import { SignUpLink } from '../signUp';
-import { PasswordForgetLink } from '../passwordForget';
 import { withFirebase } from '../firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
     <SignInForm />
-    // <PasswordForgetLink />
-    // <SignUpLink /> 
 );
 
 const INITIAL_STATE = {
