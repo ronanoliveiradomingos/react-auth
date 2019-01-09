@@ -1,50 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { Menu } from 'semantic-ui-react'
 import SignOutButton from '../signOut';
 import * as ROUTES from '../../constants/routes';
 
-import { AuthUserContext } from '../session';
+import { withAuthorization } from '../session';
 
 const Navigation = () => (
-    <div>
-        <AuthUserContext.Consumer>
-            {authUser =>
-                authUser ? <NavigationAuth /> : <NavigationNonAuth />
-            }
-        </AuthUserContext.Consumer>
-    </div>
+    <Menu fixed='top' inverted>
+        {/* <Menu.Item as={Link} to={ROUTES.LANDING} name='Landing' /> */}
+        <Menu.Item as={Link} to={ROUTES.HOME} name='Home' />
+        <Menu.Item as={Link} to={ROUTES.ACCOUNT} name='Account' />
+        <Menu.Item as={Link} to={ROUTES.ADMIN} name='Admin' />
+
+        <SignOutButton />
+    </Menu>
 );
 
-const NavigationAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.HOME}>Home</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li>
-        <li>
-            <SignOutButton />
-        </li>
-    </ul>
-);
-
-const NavigationNonAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-    </ul>
-);
-
-export default Navigation;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(Navigation);

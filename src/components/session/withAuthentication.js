@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SignInPage from '../signIn';
 import AuthUserContext from './context';
 import { withFirebase } from '../firebase';
 

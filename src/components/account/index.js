@@ -1,17 +1,28 @@
 import React from 'react';
+import { Container, Header, Divider } from 'semantic-ui-react'
 
 import { PasswordForgetForm } from '../passwordForget';
 import PasswordChangeForm from '../passwordChange';
 import { AuthUserContext, withAuthorization } from '../session';
 
 const AccountPage = () => (
+
   <AuthUserContext.Consumer>
     {authUser => (
-      <div>
-        <h1>Account: {authUser.email}</h1>
+      <Container text style={{ marginTop: '7em' }}>
+        <Header as='h1'>Account</Header>
+        <p>The Account Page is accessible by every signed in user.</p>
+        <p>
+          A text container is used for the main container, which is useful for single column layouts.
+        </p>
+
+        {/* <Container textAlign='right'>E-mail: {authUser.email}</Container> */}
         <PasswordForgetForm />
+
+        <Divider horizontal>Or</Divider>
+
         <PasswordChangeForm />
-      </div>
+      </Container>
     )}
   </AuthUserContext.Consumer>
 );
