@@ -8,7 +8,6 @@ import { withAuthorization } from '../session';
 
 const Navigation = () => (
     <Menu fixed='top' inverted>
-        {/* <Menu.Item as={Link} to={ROUTES.LANDING} name='Landing' /> */}
         <Menu.Item as={Link} to={ROUTES.HOME} name='Home' />
         <Menu.Item as={Link} to={ROUTES.ACCOUNT} name='Account' />
         <Menu.Item as={Link} to={ROUTES.ADMIN} name='Admin' />

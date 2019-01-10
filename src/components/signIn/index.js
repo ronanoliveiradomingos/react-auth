@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { SignUpLink } from '../signUp';
 import { Link } from 'react-router-dom';
 import { withFirebase } from '../firebase';
 import * as ROUTES from '../../constants/routes';
@@ -78,7 +79,7 @@ class SignInFormBase extends Component {
               <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
             </Message>
             <Message>
-              New to us? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+              <SignUpLink />
             </Message>
           </Grid.Column>
         </Grid>

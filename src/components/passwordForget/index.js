@@ -57,20 +57,6 @@ class PasswordForgetFormBase extends Component {
                 <Button type='submit' onClick={this.onSubmit} disabled={isInvalid}>Reset My Password</Button>
                 {error && <Message error header='Error' content={error.message} />}
             </Form>
-            //     <form onSubmit={this.onSubmit}>
-            //         <input
-            //             name="email"
-            //             value={this.state.email}
-            //             onChange={this.onChange}
-            //             type="text"
-            //             placeholder="Email Address"
-            //         />
-            //         <button disabled={isInvalid} type="submit">
-            //             Reset My Password
-            // </button>
-
-            //         {error && <p>{error.message}</p>}
-            //     </form>
         );
     }
 }
