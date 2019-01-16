@@ -67,28 +67,6 @@ class PasswordChangeForm extends Component {
                 <Button type='submit' onClick={this.onSubmit} disabled={isInvalid}>Reset My Password</Button>
                 {error && <Message error header='Error' content={error.message} />}
             </Form>
-
-            //     <form onSubmit={this.onSubmit}>
-            //         <input
-            //             name="passwordOne"
-            //             value={passwordOne}
-            //             onChange={this.onChange}
-            //             type="password"
-            //             placeholder="New Password"
-            //         />
-            // <input
-            //     name="passwordTwo"
-            //     value={passwordTwo}
-            //     onChange={this.onChange}
-            //     type="password"
-            //     placeholder="Confirm New Password"
-            // />
-            //         <button disabled={isInvalid} type="submit">
-            //             Reset My Password
-            // </button>
-
-            //         {error && <p>{error.message}</p>}
-            //     </form>
         );
     }
 }

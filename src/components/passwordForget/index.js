@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Message, Form } from 'semantic-ui-react'
+import { Button, Message, Form, Container, Header } from 'semantic-ui-react'
 
 import { withFirebase } from '../firebase';
 import * as ROUTES from '../../constants/routes';
 
 const PasswordForgetPage = () => (
-    <div>
-        <h1>PasswordForget</h1>
-        <PasswordForgetForm />
-    </div>
+    <PasswordForgetForm />
 );
 
 const INITIAL_STATE = {
@@ -31,6 +28,7 @@ class PasswordForgetFormBase extends Component {
             .doPasswordReset(email)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
+                this.props.history.push(ROUTES.SIGN_IN);
             })
             .catch(error => {
                 this.setState({ error });
@@ -49,14 +47,23 @@ class PasswordForgetFormBase extends Component {
         const isInvalid = email === '';
 
         return (
-            <Form>
-                <Form.Field>
-                    <label>E-mail</label>
-                    <input name="email" placeholder='Email Address' onChange={this.onChange} type="text" />
-                </Form.Field>
-                <Button type='submit' onClick={this.onSubmit} disabled={isInvalid}>Reset My Password</Button>
-                {error && <Message error header='Error' content={error.message} />}
-            </Form>
+            <Container text style={{ marginTop: '7em' }}>
+                <Header as='h1'>Reset Password</Header>
+                <Form>
+                    <Form.Field>
+                        <label>Email Address</label>
+                        <input
+                            name="email"
+                            value={email}
+                            onChange={this.onChange}
+                            type="text"
+                            placeholder="Email Address"
+                        />
+                    </Form.Field>
+                    <Button type='submit' onClick={this.onSubmit} disabled={isInvalid}>Reset My Password</Button>
+                    {error && <Message error header='Error' content={error.message} />}
+                </Form>
+            </Container>
         );
     }
 }

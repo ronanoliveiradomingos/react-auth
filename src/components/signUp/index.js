@@ -23,18 +23,19 @@ class SignUpFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
-    onSubmit = event => {
+    onSubmit = async event => {
         const { username, email, passwordOne } = this.state;
 
-        this.props.firebase
+        await this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 // Create a user in your Firebase realtime database
                 this.props.firebase
-                    .user(authUser.user.uid)
-                    .set({
-                        username,
-                        email,
+                    .users().push({
+                        uid: authUser.user.uid,
+                        username: username,
+                        email: email,
+                        createdAt: Date.now()
                     })
                     .then(() => {
                         this.setState({ ...INITIAL_STATE });
