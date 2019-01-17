@@ -13,12 +13,13 @@ const trigger = (
 
 const SignOutButton = ({ firebase }) => (
   <Menu.Item header>
-    Ronan Oliveira Domingos
-    <Dropdown trigger={trigger} pointing='top left' icon={null}>
+    <Dropdown trigger={trigger} pointing='top right' text='Left menu' icon={null}>
       <Dropdown.Menu>
-        <Dropdown.Item as={Link} to={ROUTES.ADMIN} name='Admin'>Admin</Dropdown.Item>
-        <Dropdown.Item as={Link} to={ROUTES.ACCOUNT} name='Account' icon='user'>Account</Dropdown.Item>
-        <Dropdown.Item onClick={firebase.doSignOut} name='SignOut' icon='sign out'>Sign Out</Dropdown.Item>
+        <Dropdown.Header content='Ronan Oliveira Domingos' />
+        <Dropdown.Divider />
+        <Dropdown.Item as={Link} to={ROUTES.ACCOUNT} name='Account' icon='user' text='Account'/>
+        <Dropdown.Item as={Link} to={ROUTES.ADMIN} name='Admin' icon='settings' text='Admin'/>
+        <Dropdown.Item onClick={firebase.doSignOut} name='SignOut' icon='sign out' text='Sign Out'/>
       </Dropdown.Menu>
     </Dropdown>
     </Menu.Item>
