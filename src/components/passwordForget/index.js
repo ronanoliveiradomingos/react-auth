@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Message, Form, Container, Header } from 'semantic-ui-react'
+import { Button, Message, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 import { withFirebase } from '../firebase';
 import * as ROUTES from '../../constants/routes';
@@ -27,8 +26,10 @@ class PasswordForgetFormBase extends Component {
         this.props.firebase
             .doPasswordReset(email)
             .then(() => {
+
                 this.setState({ ...INITIAL_STATE });
                 this.props.history.push(ROUTES.SIGN_IN);
+
             })
             .catch(error => {
                 this.setState({ error });
@@ -47,35 +48,29 @@ class PasswordForgetFormBase extends Component {
         const isInvalid = email === '';
 
         return (
-            <Container text style={{ marginTop: '7em' }}>
-                <Header as='h1'>Reset Password</Header>
-                <Form>
-                    <Form.Field>
-                        <label>Email Address</label>
-                        <input
-                            name="email"
-                            value={email}
-                            onChange={this.onChange}
-                            type="text"
-                            placeholder="Email Address"
-                        />
-                    </Form.Field>
-                    <Button type='submit' onClick={this.onSubmit} disabled={isInvalid}>Reset My Password</Button>
-                    {error && <Message error header='Error' content={error.message} />}
-                </Form>
-            </Container>
+
+            <div className='login-form'>
+                <style>{`body > div,body > div > div,body > div > div > div.login-form {height: 100%;}`}</style>
+                <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                    <Grid.Column style={{ maxWidth: 450 }}>
+                        <Header as='h2' color='teal' textAlign='center'>Reset your password</Header>
+                        <Form size='large'>
+                            <Segment stacked>
+                                <p>Enter your email address and we will send you a link to reset your password.</p>
+                                <Form.Input name="email" value={email} fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.onChange} />
+                                <Button disabled={isInvalid} color='teal' fluid size='large' onClick={this.onSubmit}>Send password reset email</Button>
+                            </Segment>
+                        </Form>
+                        {error && <Message error header='Error' content={error.message} />}
+                    </Grid.Column>
+                </Grid>
+            </div>
         );
     }
 }
-
-const PasswordForgetLink = () => (
-    <p>
-        <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
-    </p>
-);
 
 export default PasswordForgetPage;
 
 const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
 
-export { PasswordForgetForm, PasswordForgetLink };
+export { PasswordForgetForm };

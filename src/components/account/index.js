@@ -17,10 +17,6 @@ const AccountPage = () => (
         </p>
 
         {/* <Container textAlign='right'>E-mail: {authUser.email}</Container> */}
-        <PasswordForgetForm />
-
-        <Divider horizontal>Or</Divider>
-
         <PasswordChangeForm />
       </Container>
     )}
