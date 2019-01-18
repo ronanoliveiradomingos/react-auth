@@ -19,14 +19,6 @@ const Navigation = () => (
                 <Menu.Item as={Link} to={ROUTES.HOME} name='Clientes' />
 
             </Container>
-            {/* <Menu.Menu position='right'>
-                <Dropdown item simple text=''>
-                    <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to={ROUTES.ACCOUNT} name='Account'>Account</Dropdown.Item>
-                        <Dropdown.Item as={Link} to={ROUTES.ADMIN} name='Admin'>Admin</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </Menu.Menu> */}
             <SignOutButton />
         </Menu>
 
