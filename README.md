@@ -24,8 +24,8 @@ Utils para desenvolvimento:<br>
 
 [Firebase - Google](https://firebase.google.com/?hl=pt-br)<br>
 
-[Recompose](https://github.com/acdlite/recompose)
+[Semantic UI React](https://react.semantic-ui.com/) <br>
 
-[Semantic UI React](https://react.semantic-ui.com/)
+[Creating Multistep Forms With React and Semantic UI](https://scotch.io/tutorials/creating-multistep-forms-with-react-and-semantic-ui)<br>
 
-[Creating Multistep Forms With React and Semantic UI](https://scotch.io/tutorials/creating-multistep-forms-with-react-and-semantic-ui)
+[Semantic UI React - Responsive Navbar](https://codesandbox.io/s/325y47xk36)<br>

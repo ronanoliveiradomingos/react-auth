@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Navigation from '../navigation';
 import NavBar from '../menu';
 import { Link } from 'react-router-dom';
 
@@ -24,26 +22,22 @@ const leftItems = [
   { as: Link, to: ROUTES.CLIENT_PAGE, name: "Cliente" }
 ];
 
-const rightItems = [
-  { as: "a", content: "Login", key: "login" },
-  { as: "a", content: "Register", key: "register" }
-];
-
 const App = () => (
   <Router>
     <div>
-      <NavBar leftItems={leftItems} rightItems={rightItems}>
+      <NavBar leftItems={leftItems}>
         <Route exact path={ROUTES.HOME} component={HomePage} />
-        <Route path={ROUTES.HOME_PAGE} component={HomePage} />
-        <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+        <Route path={ROUTES.ACCOUNT} component={AccountPage} />  
         <Route path={ROUTES.ADMIN} component={AdminPage} />
+        
+        <Route path={ROUTES.HOME_PAGE} component={HomePage} />
         <Route path={ROUTES.ORDER_PAGE} component={OrderPage} />
         <Route path={ROUTES.CLIENT_PAGE} component={ClientPage} />
         <Footer />
       </NavBar>
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
     </div>
   </Router>
 );

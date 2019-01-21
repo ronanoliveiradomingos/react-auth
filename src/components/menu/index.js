@@ -9,8 +9,7 @@ import {
     Responsive
 } from "semantic-ui-react";
 import SignOutButton from '../signOut';
-import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
+import { withAuthorization } from '../session';
 
 const NavBarMobile = ({
     children,
@@ -48,7 +47,9 @@ const NavBarMobile = ({
                     {/* <Menu.Menu position="right">
                         {_.map(rightItems, item => <Menu.Item {...item} />)}
                     </Menu.Menu> */}
-                    <SignOutButton/>
+                    <Menu.Menu position="right">
+                        <SignOutButton/>
+                    </Menu.Menu>
                 </Menu>
                 {children}
             </Sidebar.Pusher>
@@ -110,29 +111,5 @@ class NavBar extends Component {
     }
 }
 
-// const leftItems = [
-//     { as: Link, to: ROUTES.HOME, content: "Home", name: "Home", key: "home" },
-//     { as: Link, to: ROUTES.ORDER_PAGE, content: "Orçamento", name: "Orçamento", key: "order" },
-//     { as: Link, to: ROUTES.CLIENT_PAGE, content: "Cliente", name: "Cliente", key: "client" }
-// ];
-// const rightItems = [
-//     { as: "a", content: "Login", key: "login" },
-//     { as: "a", content: "Register", key: "register" }
-// ];
-
-// const App = () => (
-//     <NavBar leftItems={leftItems} rightItems={rightItems}>
-
-//         {/*<Container>
-//              <Menu.Item as={Link} to={ROUTES.HOME} name='Home' />
-//             <Menu.Item as={Link} to={ROUTES.ORDER_PAGE} name='Orçamento' />
-//             <Menu.Item as={Link} to={ROUTES.CLIENT_PAGE} name='Clientes' /> 
-//         </Container>*/}
-//         {/* <SignOutButton /> */}
-
-//     </NavBar>
-// );
-
-//render(<App />, document.getElementById("root"));
-
-export default NavBar;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(NavBar);
