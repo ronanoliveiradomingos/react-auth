@@ -27,6 +27,8 @@ class SignInFormBase extends Component {
   onSubmit = event => {
     const { email, password } = this.state;
 
+    this.setState({ error: '' });
+
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
