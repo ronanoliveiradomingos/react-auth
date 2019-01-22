@@ -1,9 +1,7 @@
 import React from 'react';
-import { Container, Header, Image, Item, Button, Icon, Label } from 'semantic-ui-react'
+import { Container, Header, Image } from 'semantic-ui-react'
 import headerParagraph from '../../images/paragraph.png';
 import paragraph from '../../images/paragraph.png';
-import wireframe from '../../images/wireframe.png';
-import square from '../../images/square-image.png';
 
 import { withAuthorization } from '../session';
 

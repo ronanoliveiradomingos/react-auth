@@ -27,16 +27,16 @@ const App = () => (
     <div>
       <NavBar leftItems={leftItems}>
         <Route exact path={ROUTES.HOME} component={HomePage} />
-        <Route path={ROUTES.ACCOUNT} component={AccountPage} />  
+        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
         <Route path={ROUTES.ADMIN} component={AdminPage} />
         <Route path={ROUTES.HOME_PAGE} component={HomePage} />
         <Route path={ROUTES.ORDER_PAGE} component={OrderPage} />
         <Route path={ROUTES.CLIENT_PAGE} component={ClientPage} />
       </NavBar>
       <Footer />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
     </div>
   </Router>
 );

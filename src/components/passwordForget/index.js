@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Message, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import { Button, Message, Form, Grid, Header, Segment, Container } from 'semantic-ui-react'
 
 import { withFirebase } from '../firebase';
 import * as ROUTES from '../../constants/routes';
@@ -54,14 +54,16 @@ class PasswordForgetFormBase extends Component {
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h2' color='teal' textAlign='center'>Reset your password</Header>
-                        <Form size='large'>
-                            <Segment stacked>
-                                <p>Enter your email address and we will send you a link to reset your password.</p>
-                                <Form.Input name="email" value={email} fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.onChange} />
-                                <Button disabled={isInvalid} color='teal' fluid size='large' onClick={this.onSubmit}>Send password reset email</Button>
-                            </Segment>
-                        </Form>
-                        {error && <Message error header='Error' content={error.message} />}
+                        <Container>
+                            <Form size='large'>
+                                <Segment stacked>
+                                    <p>Enter your email address and we will send you a link to reset your password.</p>
+                                    <Form.Input name="email" value={email} fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.onChange} />
+                                    <Button disabled={isInvalid} color='teal' fluid size='large' onClick={this.onSubmit}>Send password reset email</Button>
+                                </Segment>
+                            </Form>
+                            {error && <Message error header='Error' content={error.message} />}
+                        </Container>
                     </Grid.Column>
                 </Grid>
             </div>
